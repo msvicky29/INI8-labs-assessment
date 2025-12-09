@@ -2,6 +2,8 @@
 import React from 'react'
 import FileUpload from './components/FileUpload'
 import NavBar from './components/NavBar'      
+import Documents from './components/Documents'
+import { Route, Routes } from 'react-router-dom'
 function App() {
  
 
@@ -9,8 +11,10 @@ function App() {
     <>
     <NavBar />
     <div className='p-12'>
-     
-      <FileUpload />
+     <Routes>
+     <Route path='/' element={  <FileUpload />} />
+      <Route path='/documents' element={<Documents />} />
+     </Routes>
     </div>
 
     </>
