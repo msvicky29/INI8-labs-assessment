@@ -1,16 +1,33 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 const NavBar = () => {
+  const linkBase =
+    'inline-flex items-center px-3 py-1 text-sm font-medium rounded-md transition-colors duration-150';
+  const inactive = 'text-slate-800 hover:text-slate-50 hover:bg-amber-500/70';
+  const active = 'bg-white text-amber-700 shadow-sm';
+
   return (
-    <div className='w-full flex justify-between bg-amber-400 p-6'>
-      <h1 className='text-4xl font-extrabold'>NavBar</h1> 
-      <div>
-        <ul>
-        <Link to="/" className='inline-block p-4 cursor-pointer'> Home</Link>
-        <Link to="/documents" className='inline-block p-4 cursor-pointer'> Documents</Link>
-        </ul>
+    <nav className='w-full flex items-center justify-between bg-amber-400 px-5 py-3'>
+      <h1 className='text-2xl font-extrabold text-slate-900'>Patient Portal</h1>
+      <div className='flex items-center gap-2'>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            `${linkBase} ${isActive ? active : inactive}`
+          }
+        >
+          Home
+        </NavLink>
+        <NavLink
+          to="/documents"
+          className={({ isActive }) =>
+            `${linkBase} ${isActive ? active : inactive}`
+          }
+        >
+          Documents
+        </NavLink>
       </div>
-    </div>
+    </nav>
   )
 }
 

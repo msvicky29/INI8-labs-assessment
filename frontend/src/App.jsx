@@ -4,11 +4,13 @@ import FileUpload from './components/FileUpload'
 import NavBar from './components/NavBar'      
 import Documents from './components/Documents'
 import { Route, Routes } from 'react-router-dom'
+import toast, { Toaster } from 'react-hot-toast';
 function App() {
  
 
   return (
     <>
+     <Toaster />
     <NavBar />
     <div className='p-12'>
      <Routes>

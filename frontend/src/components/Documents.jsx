@@ -69,32 +69,35 @@ const Documents = () => {
   return (
     <div>
       <h1 className='text-3xl mb-9 font-bold'>Documents Page</h1>
+      {
+        documents.length==0?<p className='text-center text-2xl m-6'> No documents found</p>:""
+      }
       <div className='grid grid-cols-1  md:grid-cols-3  gap-6'>
         {documents.map((doc) => (
           <div key={doc._id} className='border  p-4  my-2 items-center rounded-md'>
-            <div className='flex items-center justify-between mb-4'>
+            <div className='flex items-center justify-between mb-4 truncate'>
               <img src={pdfImage} alt='pdf-icon' className='w-14 mb-2' />
               <div>
-                <p className='font-semibold'>Filename: {doc.filename}</p>
+                <p className='font-semibold '>Filename: {doc.filename}</p>
                 <p>Filesize: {(doc.filesize / 1024).toFixed(2)} KB</p>
               </div>
             </div>
             <div className='flex justify-between mt-4 gap-3'>
               <button
                 onClick={() => handleView(doc.filepath)}
-                className='flex-1 flex items-center justify-center space-x-2 px-4 py-2 text-sm font-medium rounded-lg  bg-indigo-600 text-white hover:bg-indigo-700 transition duration-150 shadow-md'
+                className='cursor-pointer flex-1 flex items-center justify-center space-x-2 px-4 py-2 text-sm font-medium rounded-lg  bg-indigo-600 text-white hover:bg-indigo-700 transition duration-150 shadow-md'
               >
                 <span>View</span>
               </button>
               <button
                 onClick={() => handleDownload(doc._id, doc.filename)}
-                className='flex-1 flex items-center justify-center space-x-2 px-4 py-2 text-sm font-medium rounded-lg  bg-green-600 text-white hover:bg-green-700 transition duration-150 shadow-md'
+                className='cursor-pointer flex-1 flex items-center justify-center space-x-2 px-4 py-2 text-sm font-medium rounded-lg  bg-green-600 text-white hover:bg-green-700 transition duration-150 shadow-md'
               >
                 <span>Download</span>
               </button>
               <button
                 onClick={()=>handleDelete(doc._id)}
-                className='flex-1 flex items-center justify-center space-x-2 px-4 py-2 text-sm font-medium rounded-lg  bg-red-600 text-white hover:bg-red-700 transition duration-150 shadow-md'
+                className=' cursor-pointer flex-1 flex items-center justify-center space-x-2 px-4 py-2 text-sm font-medium rounded-lg  bg-red-600 text-white hover:bg-red-700 transition duration-150 shadow-md'
               >
                 <span>Delete</span>
               </button>
