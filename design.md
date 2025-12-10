@@ -98,7 +98,7 @@ const newDocument = new Documents({
 Frontend (React) → Backend (Express) → MongoDB + File System
 ```
 
-**Architecture Diagram:** [https://example.com/architecture-diagram.png]()
+**Architecture Diagram:** ![Image](https://github.com/msvicky29/INI8-labs-assessment/blob/main/Flow%20diagram.png?raw=true)
 
 **Components:**
 
