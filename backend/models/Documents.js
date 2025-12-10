@@ -1,7 +1,10 @@
 const mongoose=require('mongoose');
 
 const docuemntSchema=new mongoose.Schema({
-
+    userId:{
+        type:String,
+        required:true
+    },
     filename:{
         type:String,
         required:true
@@ -14,7 +17,7 @@ const docuemntSchema=new mongoose.Schema({
         type:Number,
         required:true
     },
-    created_at:{
+    createdAt:{
         type:Date,
         default:Date.now
     }
